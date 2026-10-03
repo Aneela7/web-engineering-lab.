@@ -1,0 +1,20 @@
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 3px solid blue;
+  outline-offset: 3px;
+}
+a[href="#main-content"] {
+  position: absolute;
+  left: -9999px;
+  top: 10px;
+}
+a[href="#main-content"]:focus {
+  left: 10px;
+  background: white;
+  padding: 10px;
+  border: 2px solid black;
+  z-index: 1000;
+}
