@@ -3,162 +3,72 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Web Engineering Lab</title>
 
     <link rel="stylesheet" href="styles.css" />
   </head>
+
   <body>
-    <a href="#main-content">Skip to main content</a>
     <header>
-      <h1 id="greeting">Hello, World!</h1>
+      <h1 id="greeting">Hello!</h1>
+
       <nav>
         <ul>
           <li>
-            <a href="#home" aria-current="location">Home</a>
+            <a href="index.html" class="nav-link" aria-current="location">
+              Home
+            </a>
           </li>
+
           <li>
-            <a href="#about">About</a>
+            <a href="#office-hours" class="nav-link"> Office Hours </a>
           </li>
+
           <li>
-            <a href="#contact">Contact</a>
+            <a href="#feedback" class="nav-link"> Send Feedback </a>
           </li>
         </ul>
       </nav>
     </header>
+
     <main id="main-content">
-      <section id="home">
-        <h2>Welcome</h2>
-        <p>This is the main content of the page.</p>
-      </section>
-      <svg aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
-        <line
-          x1="2"
-          y1="12"
-          x2="22"
-          y2="12"
-          stroke="currentColor"
-          stroke-width="2"
-        ></line>
-      </svg>
-      <section id="about">
+      <section id="office-hours">
         <h2>Office Hours</h2>
-        <figure>
-          <svg role="img" width="80" height="80" viewBox="0 0 24 24">
-            <title>Office hours clock icon</title>
-            <circle
-              cx="12"
-              cy="12"
-              r="9"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-            ></circle>
 
-            <line
-              x1="12"
-              y1="12"
-              x2="12"
-              y2="7"
-              stroke="currentColor"
-              stroke-width="2"
-            ></line>
-
-            <line
-              x1="12"
-              y1="12"
-              x2="16"
-              y2="14"
-              stroke="currentColor"
-              stroke-width="2"
-            ></line>
-          </svg>
-
-          <figcaption>Clock showing office hours.</figcaption>
-        </figure>
-        <table>
-          <caption>
-            Office Hours Schedule
-          </caption>
-          <thead>
-            <tr>
-              <th scope="col">Day</th>
-              <th scope="col">Opening Time</th>
-              <th scope="col">Closing Time</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Monday</th>
-              <td><time datetime="09:00">9:00 AM</time></td>
-              <td><time datetime="17:00">5:00 PM</time></td>
-            </tr>
-            <tr>
-              <th scope="row">Tuesday</th>
-              <td><time datetime="09:00">9:00 AM</time></td>
-              <td><time datetime="17:00">5:00 PM</time></td>
-            </tr>
-            <tr>
-              <th scope="row">Wednesday</th>
-              <td><time datetime="09:00">9:00 AM</time></td>
-              <td><time datetime="17:00">5:00 PM</time></td>
-            </tr>
-          </tbody>
-        </table>
+        <p class="text-muted">
+          Our office is available during the following hours.
+        </p>
       </section>
-      <section id="contact">
+
+      <section id="feedback">
         <h2>Send Feedback</h2>
+
         <form>
-          <div>
-            <label for="name">Name:</label>
+          <p>
+            <label for="name">Name</label>
             <input type="text" id="name" name="name" required />
-          </div>
-          <div>
-            <label for="email">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              aria-describedby="email-hint"
-              required
-            />
+          </p>
 
-            <small id="email-hint"> Please enter a valid email address. </small>
-          </div>
-          <fieldset>
-            <legend>Topic</legend>
-            <input
-              type="radio"
-              id="website"
-              name="topic"
-              value="website"
-              required
-            />
-            <label for="website">Website</label>
-            <input type="radio" id="content" name="topic" value="content" />
-            <label for="content">Content</label>
-            <input type="radio" id="other" name="topic" value="other" />
-            <label for="other">Other</label>
-          </fieldset>
-          <div>
-            <label for="message">Message:</label>
+          <p>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </p>
 
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              cols="30"
-              required
-            ></textarea>
-          </div>
-          <button type="submit">Submit Feedback</button>
+          <p>
+            <label for="message">Message</label>
+            <textarea id="message" name="message"></textarea>
+          </p>
+
+          <button type="submit">Submit</button>
         </form>
       </section>
     </main>
+
     <footer>
-      <address>
-        Contact: Aneela Mehboob<br />
-        Email: aneela@example.com
-      </address>
+      <address>Contact us at our office.</address>
     </footer>
+
+    <script src="script.js"></script>
   </body>
 </html>

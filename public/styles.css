@@ -1,20 +1,94 @@
-a:focus,
-button:focus,
-input:focus,
-textarea:focus,
-select:focus {
-  outline: 3px solid blue;
-  outline-offset: 3px;
+@layer reset, base, components, utilities;
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html,
+  body {
+    margin: 0;
+  }
 }
-a[href="#main-content"] {
-  position: absolute;
-  left: -9999px;
-  top: 10px;
+@layer base {
+  :root {
+    color-scheme: light dark;
+    --color-bg: light-dark(oklch(98% 0.01 250), oklch(18% 0.02 250));
+    --color-text: light-dark(oklch(20% 0.02 250), oklch(96% 0.02 250));
+    --color-accent: light-dark(oklch(45% 0.15 145), oklch(80% 0.15 145));
+    --color-surface: color-mix(in oklch, var(--color-bg), var(--color-text) 5%);
+    --color-border: color-mix(in oklch, var(--color-bg), var(--color-text) 25%);
+    --color-muted: color-mix(in oklch, var(--color-text), var(--color-bg) 35%);
+    --space: 1rem;
+  }
+  body {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: var(--space);
+    font-family: system-ui, sans-serif;
+    line-height: 1.5;
+  }
+
+  h1,
+  h2,
+  h3 {
+    color: var(--color-text);
+  }
 }
-a[href="#main-content"]:focus {
-  left: 10px;
-  background: white;
-  padding: 10px;
-  border: 2px solid black;
-  z-index: 1000;
+@layer components {
+  main {
+    max-inline-size: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--space);
+  }
+  nav a {
+    color: var(--color-accent);
+  }
+  .nav-link {
+    color: var(--color-accent);
+  }
+  :where(nav ul li a) {
+    color: var(--color-accent);
+  }
+  form p {
+    margin-block: 0.5rem 1rem;
+  }
+  input,
+  textarea,
+  select,
+  button {
+    font: inherit;
+  }
+  input,
+  textarea {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-surface);
+    color: var(--color-text);
+  }
+  button {
+    background-color: var(--color-accent);
+    color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    border-radius: 0.4rem;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: var(--color-text);
+    color: var(--color-bg);
+  }
+  svg {
+    fill: currentColor;
+  }
+}
+@layer utilities {
+  .skip-link {
+    color: var(--color-accent);
+    background-color: var(--color-surface);
+    padding: var(--space);
+  }
+  .text-muted {
+    color: var(--color-muted);
+  }
 }
