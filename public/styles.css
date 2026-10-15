@@ -1,94 +1,107 @@
-@layer reset, base, components, utilities;
-@layer reset {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-  html,
-  body {
-    margin: 0;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-@layer base {
-  :root {
-    color-scheme: light dark;
-    --color-bg: light-dark(oklch(98% 0.01 250), oklch(18% 0.02 250));
-    --color-text: light-dark(oklch(20% 0.02 250), oklch(96% 0.02 250));
-    --color-accent: light-dark(oklch(45% 0.15 145), oklch(80% 0.15 145));
-    --color-surface: color-mix(in oklch, var(--color-bg), var(--color-text) 5%);
-    --color-border: color-mix(in oklch, var(--color-bg), var(--color-text) 25%);
-    --color-muted: color-mix(in oklch, var(--color-text), var(--color-bg) 35%);
-    --space: 1rem;
-  }
-  body {
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    padding: var(--space);
-    font-family: system-ui, sans-serif;
-    line-height: 1.5;
-  }
-
-  h1,
-  h2,
-  h3 {
-    color: var(--color-text);
-  }
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
 }
-@layer components {
-  main {
-    max-inline-size: 1200px;
-    margin-inline: auto;
-    padding-inline: var(--space);
-  }
-  nav a {
-    color: var(--color-accent);
-  }
-  .nav-link {
-    color: var(--color-accent);
-  }
-  :where(nav ul li a) {
-    color: var(--color-accent);
-  }
-  form p {
-    margin-block: 0.5rem 1rem;
-  }
-  input,
-  textarea,
-  select,
-  button {
-    font: inherit;
-  }
-  input,
-  textarea {
-    border: 1px solid var(--color-border);
-    background-color: var(--color-surface);
-    color: var(--color-text);
-  }
-  button {
-    background-color: var(--color-accent);
-    color: var(--color-bg);
-    border: 1px solid var(--color-border);
-    padding-block: 0.5rem;
-    padding-inline: 1rem;
-    border-radius: 0.4rem;
-    cursor: pointer;
-  }
-  button:hover {
-    background-color: var(--color-text);
-    color: var(--color-bg);
-  }
-  svg {
-    fill: currentColor;
-  }
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 20px;
+  background-color: #e8f0f8;
 }
-@layer utilities {
-  .skip-link {
-    color: var(--color-accent);
-    background-color: var(--color-surface);
-    padding: var(--space);
+nav ul {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  list-style: none;
+}
+nav a {
+  text-decoration: none;
+  color: #222;
+}
+figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin: 16px 0;
+}
+#schedule {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  padding: 20px;
+}
+.span-all {
+  grid-column: 1 / -1;
+}
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  padding: 20px;
+}
+form fieldset,
+form .message {
+  grid-column: 1 / -1;
+}
+#schedule table {
+  width: 100%;
+  border-collapse: collapse;
+  grid-column: 1 / -1;
+}
+#schedule th,
+#schedule td {
+  border: 1px solid #ccc;
+  padding: 12px;
+  text-align: left;
+}
+#schedule th {
+  background-color: #e8f0f8;
+}
+#schedule button {
+  padding: 8px 12px;
+  border: 1px solid #198754;
+  border-radius: 4px;
+  background-color: white;
+  color: #198754;
+  cursor: pointer;
+}
+#schedule button:hover {
+  background-color: #e8f5e9;
+}
+#schedule tbody tr.selected {
+  background-color: #d4edda;
+}
+#schedule tbody tr.selected button {
+  background-color: #198754;
+  color: white;
+}
+#booking-status {
+  grid-column: 1 / -1;
+  margin-top: 12px;
+  font-weight: bold;
+}
+@media (max-width: 600px) {
+  #schedule,
+  form {
+    grid-template-columns: 1fr;
   }
-  .text-muted {
-    color: var(--color-muted);
+  .span-all,
+  form fieldset,
+  form .message {
+    grid-column: 1 / -1;
+  }
+  #schedule th,
+  #schedule td {
+    padding: 6px;
+    font-size: 12px;
   }
 }

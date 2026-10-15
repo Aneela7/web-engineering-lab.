@@ -3,72 +3,85 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <title>Web Engineering Lab</title>
-
     <link rel="stylesheet" href="styles.css" />
   </head>
-
   <body>
-    <header>
+    <header class="header">
       <h1 id="greeting">Hello!</h1>
-
       <nav>
         <ul>
-          <li>
-            <a href="index.html" class="nav-link" aria-current="location">
-              Home
-            </a>
-          </li>
-
-          <li>
-            <a href="#office-hours" class="nav-link"> Office Hours </a>
-          </li>
-
-          <li>
-            <a href="#feedback" class="nav-link"> Send Feedback </a>
-          </li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#office-hours">Office Hours</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#feedback">Send Feedback</a></li>
         </ul>
       </nav>
     </header>
 
-    <main id="main-content">
+    <main id="home">
       <section id="office-hours">
         <h2>Office Hours</h2>
+        <p>Contact us during office hours.</p>
+      </section>
 
-        <p class="text-muted">
-          Our office is available during the following hours.
+      <section id="schedule">
+        <h2 class="span-all">Office Hours Schedule</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Office Hours</th>
+              <th>Contact</th>
+              <th>Book</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Monday</td>
+              <td>9:00 AM - 11:00 AM</td>
+              <td>Email</td>
+              <td><button type="button" data-day="Monday">Book</button></td>
+            </tr>
+            <tr>
+              <td>Tuesday</td>
+              <td>10:00 AM - 12:00 PM</td>
+              <td>Email</td>
+              <td><button type="button" data-day="Tuesday">Book</button></td>
+            </tr>
+            <tr>
+              <td>Wednesday</td>
+              <td>9:00 AM - 11:00 AM</td>
+              <td>Email</td>
+              <td><button type="button" data-day="Wednesday">Book</button></td>
+            </tr>
+            <tr>
+              <td>Thursday</td>
+              <td>10:00 AM - 12:00 PM</td>
+              <td>Email</td>
+              <td><button type="button" data-day="Thursday">Book</button></td>
+            </tr>
+            <tr>
+              <td>Friday</td>
+              <td>9:00 AM - 11:00 AM</td>
+              <td>Email</td>
+              <td><button type="button" data-day="Friday">Book</button></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p id="booking-status" role="status" aria-live="polite">
+          Total booked rows: 0
         </p>
       </section>
 
       <section id="feedback">
         <h2>Send Feedback</h2>
-
-        <form>
-          <p>
-            <label for="name">Name</label>
-            <input type="text" id="name" name="name" required />
-          </p>
-
-          <p>
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" required />
-          </p>
-
-          <p>
-            <label for="message">Message</label>
-            <textarea id="message" name="message"></textarea>
-          </p>
-
-          <button type="submit">Submit</button>
-        </form>
+        <!-- Apna existing feedback form yahan rakhein -->
       </section>
     </main>
-
-    <footer>
-      <address>Contact us at our office.</address>
-    </footer>
-
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
